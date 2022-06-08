@@ -11,7 +11,7 @@ export const useFetchMoviesForGenre =(nOfPage,gender)=>{
                 setMoviesForGenre(res)
             })
             .catch((err)=>{
-              console.log(`ERROR : ${err}`)
+              console.log(`ERROR : ${err.status_message}`)
             })
         }
 
