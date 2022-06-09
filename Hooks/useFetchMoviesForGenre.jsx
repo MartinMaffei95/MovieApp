@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 export const useFetchMoviesForGenre =(nOfPage,gender)=>{
     const [moviesForGenre, setMoviesForGenre] = useState()
 
-    const getMoviesForGenre = ()=>{
-        axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_PUBLIC_KEY}&page=${nOfPage}&&with_genres=${gender}`)
+    const getMoviesForGenre = async ()=>{
+        await axios.get(
+            `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_PUBLIC_KEY}&page=${nOfPage}&&with_genres=${gender}&language=es-ES`)
             .then(res =>{
                 setMoviesForGenre(res)
             })

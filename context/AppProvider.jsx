@@ -57,6 +57,7 @@ export const AppProvider = ({children}) =>{
     useEffect(()=>{
     },[STATE])
 
+    
     return(
         <MoviesContext.Provider value={{
             STATE,
@@ -69,4 +70,20 @@ export const AppProvider = ({children}) =>{
         )
 }
 
+
+
+// export async function getServerSideProps(){
+
+//     const resp = await function execute(){
+//         const [ romanceMovies ] = useFetchMoviesForGenre(1,HelperMovieToId('Romance'));
+//         return romanceMovies
+//     }
+//     console.log(resp)
+
+//     return {
+//         props:{
+
+//         }
+//     }
+// }
 
