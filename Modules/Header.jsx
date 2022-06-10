@@ -8,8 +8,8 @@ const Header = ()=>{
             <Link href='./'>
                 <h1>MovieSite</h1>
             </Link>
-            <SearchBar/>
-        <BiUserCircle  className="userIcon"/>
+            <SearchBar className="Header_SearchBar"/>
+        {/* <BiUserCircle  className="userIcon"/> */}
 
         </header>
     )

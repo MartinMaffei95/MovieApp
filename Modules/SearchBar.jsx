@@ -25,10 +25,9 @@ const SearchBar =()=>{
     }
 
     return(
-        <div>
-            <input  onKeyDown={keySearchEvt}
+            <input  className="Header_SearchBar--SearchBar"
+                    onKeyDown={keySearchEvt}
                     onChange={handleSearchValue}/>
-        </div>
     )
 }
 
