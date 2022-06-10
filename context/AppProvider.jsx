@@ -55,6 +55,7 @@ export const AppProvider = ({children}) =>{
     }
 
     useEffect(()=>{
+
     },[STATE])
 
     
@@ -72,18 +73,20 @@ export const AppProvider = ({children}) =>{
 
 
 
-// export async function getServerSideProps(){
+export async function getServerSideProps(){
 
-//     const resp = await function execute(){
-//         const [ romanceMovies ] = useFetchMoviesForGenre(1,HelperMovieToId('Romance'));
-//         return romanceMovies
-//     }
-//     console.log(resp)
-
-//     return {
-//         props:{
-
-//         }
-//     }
-// }
+    const [ actionMovies ] =    await useFetchMoviesForGenre(1,HelperMovieToId('Action'));
+    const [ horrorMovies ] =    await useFetchMoviesForGenre(1,HelperMovieToId('Horror'));
+    const [ dramaMovies ] =     await useFetchMoviesForGenre(1,HelperMovieToId('Drama'));
+    const [ romanceMovies ] =   await useFetchMoviesForGenre(1,HelperMovieToId('Romance'));
+    console.log(romanceMovies)
+    return {
+        props:{
+            movies : [
+                actionMovies,horrorMovies,dramaMovies,romanceMovies
+            ],
+            asd:'asd'
+        }
+    }
+}
 

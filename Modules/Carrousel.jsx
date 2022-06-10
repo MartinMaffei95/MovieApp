@@ -32,6 +32,7 @@ const MoviesCarrousel = ({action,moviegender})=>{
 
 
     return(
+      <> {movies ? 
         <div  className='CarrouselMovies_Container'>
           <h3 >{moviegender}:</h3>
           {movies ?
@@ -44,12 +45,15 @@ const MoviesCarrousel = ({action,moviegender})=>{
                 imgPath={m.poster_path} >
               </CarrouselCard>
             ))}
-          </div> : (<p>cargando...</p>)
+          </div> : <p>cargando...</p>
           }
 
         <BsChevronLeft className='CarrouselMovies_Arrow aLeft' onClick={scrollingLeft}> IZQ </BsChevronLeft>
         <BsChevronRight className='CarrouselMovies_Arrow aRight' onClick={scrollingRight}>  DER </BsChevronRight>
-      </div>
+      </div> : <p>Cargando . . .</p>
+      }
+        
+      </>
     )
 }
 
