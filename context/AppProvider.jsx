@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react"
 import { useFetchMoviesForGenre } from "../Hooks/useFetchMoviesForGenre"
 import { HelperMovieToId } from "../Helpers/HelperMovieToId";
 import axios from "axios";
+import { useThemeChange } from "../Hooks/useThemeChange";
 
 
 
@@ -18,6 +19,9 @@ export const AppProvider = ({children}) =>{
     const [ search, setSearch] = useState('Buscar')
     const [searchResults, setSearchResults] = useState()
  
+    const [themeSelected ,setThemeSelected] = useState('lightTheme')
+    const [ theme ] = useThemeChange(themeSelected)
+
 
     const searchAction = (searchValue)=>{
         if(searchValue === '') return
@@ -27,7 +31,7 @@ export const AppProvider = ({children}) =>{
             }
         )
     }
-
+      
 
     const STATE = {
         recomended:{
@@ -41,7 +45,7 @@ export const AppProvider = ({children}) =>{
             searchResults:searchResults
         },
         movieSelected:movieSelectObject,
-        theme:{}
+        theme:theme
     }
     
     const selectMovie = (movie)=>{
@@ -54,7 +58,16 @@ export const AppProvider = ({children}) =>{
         searchAction(search)
     }
 
+    const themeHandler = ()=>{
+        if( themeSelected === 'lightTheme' ){
+            setThemeSelected( 'darkTheme' )
+        }else if( themeSelected === 'darkTheme' ){
+            setThemeSelected( 'lightTheme' )
+        }
+    }
+
     useEffect(()=>{
+        console.log(theme)
 
     },[STATE])
 
@@ -64,7 +77,8 @@ export const AppProvider = ({children}) =>{
             STATE,
             selectMovie,
             movieSelectObject, //Objeto movie
-            searchHandler
+            searchHandler,
+            themeHandler
             }}>
             {children}
         </MoviesContext.Provider>

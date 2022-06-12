@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react"
 import {  BsChevronLeft,BsChevronRight } from "react-icons/bs";
 import { HelperRouleteScrollings } from "../Helpers/HelperRouleteScrollings";
 import { MoviesContext } from "../context/AppProvider"
+
 import CarrouselCard from "../Molecules/CarrouselCard";
 
 
@@ -33,7 +34,7 @@ const MoviesCarrousel = ({action,moviegender})=>{
 
     return(
       <> {movies ? 
-        <div  className='CarrouselMovies_Container'>
+        <div className='CarrouselMovies_Container'>
           <h3 >{moviegender}:</h3>
           {movies ?
           <div ref={carrouselRef} className='CarrouselMovies'>

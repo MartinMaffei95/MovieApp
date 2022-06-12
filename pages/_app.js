@@ -6,6 +6,7 @@ import { useContext } from "react"
 function MyApp({ Component, pageProps }) {
   const { STATE } = useContext(MoviesContext)
 
+
   return(
     <AppProvider>
       <Component {...pageProps} />

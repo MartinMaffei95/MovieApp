@@ -19,10 +19,11 @@ body {
 }
 
 :root{
-  --first_color: #8d0c0c;
-  --base_color: #1c1c1b;
-  --base_colorTwo :#4f4f4c ;
-  --white_color: #f2f2e8;
+  --first_color: ;
+  --base_color: ;
+  --base_colorTwo : ;
+  --white_color: ;
+  --text_color: ;
   --image_height:250px;
   --marginIn: 1rem;
 
@@ -38,7 +39,7 @@ a {
 }
 
 li{
-  color: var(--white_color);
+  color: var(--text_color);
 }
 
 @media (min-width:320px)  {
@@ -51,9 +52,11 @@ li{
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ }
 
-body{
-  background: var(--base_color);
+.principalDiv{
+  background-color: var(--base_color);
+ 
 }
+
 .Header{
   display: flex;
   background: linear-gradient(180deg,  var(--first_color),10%, var(--base_color));
@@ -65,13 +68,13 @@ body{
 }
 
 .Header .userIcon{
-  color: var(--white_color);
+  color: var(--text_color);
   font-size: 4rem;
   cursor: pointer;
 }
 
 .Header h1{
-  color: var(--white_color);
+  color: var(--text_color);
   cursor: pointer;
 }
 .Header .Header_SearchBar{
@@ -104,7 +107,7 @@ body{
 }
 
 .CarrouselMovies_Container h3{
-  color: var(--white_color);
+  color: var(--text_color);
   font-size: 1.4rem;
   margin: 1rem 2rem .5rem 2rem;
 }
@@ -132,7 +135,7 @@ body{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--text_color);
   background-color: rgba(0, 0, 0, 0.75);
   height: var(--image_height); /* Image Height*/
   width: 40px;
@@ -167,7 +170,7 @@ body{
 
 
 .MODAL{
-  color: var(--white_color);
+  color: var(--text_color);
   opacity: 0;
   pointer-events: none;
   position: fixed;
@@ -211,7 +214,7 @@ body{
   border-radius: 50%;
   border: none;
   background-color:  var(--first_color);
-  color:  var(--white_color);
+  color:  var(--text_color);
   cursor: pointer;
 }
 
@@ -419,4 +422,12 @@ body{
  @media (min-width:1025px) { 
    /* big landscape tablets, laptops, and desktops */
   
+  }
+
+  .lightTheme{
+    --first_color: #b20808;
+    --base_color: #d1d0d0;
+    --base_colorTwo :#716a6a ;
+    --white_color: #f2e8e8;
+    --text_color:#f2e8e8;
   }
