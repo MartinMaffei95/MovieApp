@@ -3,6 +3,7 @@ import { useFetchMoviesForGenre } from "../Hooks/useFetchMoviesForGenre"
 import { HelperMovieToId } from "../Helpers/HelperMovieToId";
 import axios from "axios";
 import { useThemeChange } from "../Hooks/useThemeChange";
+import { useFetchforTrending } from "../Hooks/useFetchForTrending";
 
 
 
@@ -13,13 +14,20 @@ export const AppProvider = ({children}) =>{
     const [ horrorMovies ] = useFetchMoviesForGenre(1,HelperMovieToId('Horror'));
     const [ dramaMovies ] = useFetchMoviesForGenre(1,HelperMovieToId('Drama'));
     const [ romanceMovies ] = useFetchMoviesForGenre(1,HelperMovieToId('Romance'));
+
+    const [ TrendingMoviesPerDay ] = useFetchforTrending('movie','day');
+    const [ TrendingMoviesPerWeek ] = useFetchforTrending('movie','week');
+    const [ TrendingSeriesPerDay ] = useFetchforTrending('tv','day');
+    const [ TrendingSeriesPerWeek ] = useFetchforTrending('tv','week');
+
+
     const [movieSelectObject, setMovieSelectObject] = useState('')
 
 
     const [ search, setSearch] = useState('Buscar')
     const [searchResults, setSearchResults] = useState()
  
-    const [themeSelected ,setThemeSelected] = useState('lightTheme')
+    const [themeSelected ,setThemeSelected] = useState('darkTheme')
     const [ theme ] = useThemeChange(themeSelected)
 
 
@@ -40,6 +48,13 @@ export const AppProvider = ({children}) =>{
             Drama_Movies:dramaMovies,
             Horror_Movies:horrorMovies
         },
+        trending:{
+            seriesLastDay:TrendingSeriesPerDay,
+            seriesLastWeek:TrendingSeriesPerWeek,
+            moviesLastDay:TrendingMoviesPerDay,
+            moviesLastWeek:TrendingMoviesPerWeek
+        }        
+        ,
         search:{
             mySearch:search,
             searchResults:searchResults
@@ -54,7 +69,6 @@ export const AppProvider = ({children}) =>{
 
     const searchHandler =(search)=>{
         setSearch(search)
-        //fetch mysearch
         searchAction(search)
     }
 
@@ -67,7 +81,6 @@ export const AppProvider = ({children}) =>{
     }
 
     useEffect(()=>{
-        console.log(theme)
 
     },[STATE])
 

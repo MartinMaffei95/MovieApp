@@ -13,8 +13,7 @@ const SearchView = ()=>{
     },[STATE])
     return(
         
-        <ul>
-            
+        <ul className="searchResults__Container">
             {searchResults && searchResults.data.results.map(r =>
                 <SearchCard 
                     key={r.id}

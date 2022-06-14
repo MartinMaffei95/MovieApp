@@ -13,8 +13,11 @@ const { themeHandler } = useContext(MoviesContext)
                 <h1>MovieSite</h1>
             </Link>
             <SearchBar className="Header_SearchBar"/>
-        {/* <BiUserCircle  className="userIcon"/> */}
-        <button onClick={themeHandler}> Theme</button>
+            {/* <ul>
+                <li></li>
+                <li>Peliculas</li>
+                <li>Series</li>
+            </ul> */}
         </header>
     )
 }
