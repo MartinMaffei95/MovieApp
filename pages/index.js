@@ -22,7 +22,11 @@ const Home = ()=> {
         </Head>
         <Header/>
         <PrincipalView></PrincipalView>
-        <footer>
+        <footer className='footer'>
+          <div className='disclaimerDBContainer'>
+            <p>Toda la informacion utilizada es obtenida de la API MovieDB</p>
+            <a href='https://www.themoviedb.org/'> Quiero conocer MovieDb!</a>
+          </div>
         </footer>
     </>
   )
